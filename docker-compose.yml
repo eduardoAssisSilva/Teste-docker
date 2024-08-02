@@ -1,0 +1,22 @@
+version: '3'
+volumes:
+  dados:
+networks:
+  teste:
+services:
+  robot:
+    build: robot
+    volumes:
+      # Worker
+      - ./worker:/worker
+    working_dir: /robot
+    networks:
+      - teste
+  worker:
+    build: worker
+    volumes:
+      # Worker
+      - ./worker:/worker
+    working_dir: /worker
+    networks:
+      - teste
