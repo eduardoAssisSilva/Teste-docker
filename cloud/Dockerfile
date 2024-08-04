@@ -7,7 +7,8 @@ SHELL [ "/bin/bash" , "-c" ]
 RUN apt-get update && apt-get install -y \
     git \
     python3-pip \
-    gettext
+    gettext \
+    net-tools
 
 # Create catkin workspace, clone repository, and build
 RUN mkdir -p ~/catkin_ws/src && cd ~/catkin_ws/src && \
