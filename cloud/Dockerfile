@@ -6,9 +6,16 @@ SHELL [ "/bin/bash" , "-c" ]
 # Install gettext for envsubst
 RUN apt-get update && apt-get install -y \
     git \
+    python3 \
     python3-pip \
     gettext \
     net-tools
+
+# Criar o link simbólico
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# Verificar se o link foi criado corretamente
+RUN python --version
 
 # Create catkin workspace, clone repository, and build
 RUN mkdir -p ~/catkin_ws/src && cd ~/catkin_ws/src && \
